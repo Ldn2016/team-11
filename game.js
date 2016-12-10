@@ -15,9 +15,10 @@ var quiz = [{
     message: "Alzheimer's disease has no survivors.",
     correctAnswer: false,
 	}, {
-    question: "Alzheimer's ",
-    choices: [3, 6, 9, 12, 18],
-    correctAnswer: 4
+    question: "Alzheimer's has occurred only at ages older than:",
+    choices: [33, 37, 42, 55, "None of the above."],
+    message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+    correctAnswer: "None of the above.",
   }, {
     question: "What is 8*9?",
     choices: [72, 99, 108, 134, 156],
