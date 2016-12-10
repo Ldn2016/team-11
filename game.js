@@ -1,8 +1,29 @@
 /*
 Write the JavaScript for the game here
 */
+
+var readyToPlay = false;
+var userName = "";
+
+function startGame() {
+	readyToPlay = true;
+	$("#initial_screen").hide();
+	$("#question_screen").show();
+}
+
+function displayInitialScreen() {
+	$("#initial_screen").show();
+	$("#play_button").click(function() {
+	  userName = $("#user_name").val();
+	  alert(userName + " starting the game!");
+	  startGame();
+	});
+}
+
 $(document).ready(function() {
-	alert("Hello world");
+	$("#initial_screen").hide();
+	$("#question_screen").hide();
+	displayInitialScreen();
 });
 
 
@@ -11,7 +32,7 @@ $(document).ready(function() {
 
 var quiz = [{
     question: "Alzheimer’s disease is not fatal.",
-    choices: [true, false]
+    choices: [true, false],
     message: "Alzheimer's disease has no survivors.",
     correctAnswer: false,
 	}, {
@@ -22,13 +43,13 @@ var quiz = [{
   }, {
     question: "Alzheimer's is the biggest killer in the UK?",
     choices: [true, false],
-    correctAnswer: true
+    correctAnswer: true,
     message: "Alzheimer's is the biggest killer in the UK.",
 
   }, {
     question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
     choices: [true, false],
-    correctAnswer: true
+    correctAnswer: true,
     message: "Alzheimer's has many more symptoms that the average person is aware of."
   }];
   
@@ -160,19 +181,4 @@ var quiz = [{
     });
   }
   
-  // Computes score and returns a paragraph element to be displayed
-  function displayScore() {
-    var score = $('<p>',{id: 'question'});
-    
-    var numCorrect = 0;
-    for (var i = 0; i < selections.length; i++) {
-      if (selections[i] === questions[i].correctAnswer) {
-        numCorrect++;
-      }
-    }
-    
-    score.append('You got ' + numCorrect + ' questions out of ' +
-                 questions.length + ' right!!!');
-    return score;
-  }
-})();
+
