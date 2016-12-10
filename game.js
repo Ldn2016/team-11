@@ -23,11 +23,28 @@ Plausible Questions:
 		message: "Nearly twice as many women have AD as men."
 
 - What are the two protiens responsible for dimentia?
-			amyloid
-			tau
+			amyloid (ans)
+			tau (ans)
 			TDP-43
 			Actin 5C
-			
+
+- Is there a cure for AD?
+			true
+			false (ans)
+	message: although there are treatments that can ease symptoms, there is no
+	cure for dimentia.
+
+- How much does dimentia effect the global economy?
+			$818 billion (ans)
+			$765 billion
+			$560 million
+			$300 thousand
+  messageP as of March 2016 dimentia costs the global economy
+	$818 billion, a figure that is continuously rising.
+
+-
+
+-
 */
 var quiz = [{
     question: "Alzheimer’s disease is not fatal.",
