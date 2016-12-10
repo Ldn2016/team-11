@@ -137,7 +137,6 @@ Plausible Questions:
 */
 
 
-=======
 var quiz = [{
 		question: "Alzheimer’s disease is not fatal.",
     choices: [true, false],
