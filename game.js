@@ -17,11 +17,16 @@ var numberOfQuestionsToShow = 4;
 Function being called when the game is at its end
 */
 function endGame() {
-	$("#end_screen").show();
+	
 	$("#question_screen").hide();
 	$("#initial_screen").hide();
 	$("#display_name2").text(userName);
 	$("#display_score2").text(score);
+	if(score > 3) {
+		$("#reward_screen").show();
+	} else {
+		$("#end_screen").show();
+	}
 }
 
 /*
@@ -32,6 +37,7 @@ function startGame() {
   $("#initial_screen").hide();
   $("#question_screen").show();
   $("#end_screen").hide();
+  $("#reward_screen").hide();
   $("#display_name").text(userName);
   $("#display_score").text(score);
   populateQuiz();
@@ -175,6 +181,7 @@ $(document).ready(function() {
   $("#initial_screen").hide();
   $("#question_screen").hide();
   $("#end_screen").hide();
+  $("#reward_screen").hide();
   displayInitialScreen();
 });
 
