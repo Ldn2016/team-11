@@ -41,7 +41,7 @@ Plausible Questions:
 
 - Who has a higher risk of AD (ans: women)
 		other possible: men, equally the same
-		message: "Nearly twice as many women have AD as men."
+		message: "Women are nearly twice as likely to develop AD than men."
 
 - What are the two protiens responsible for dimentia?
 			amyloid (ans)
@@ -60,7 +60,7 @@ Plausible Questions:
 			$765 billion
 			$560 million
 			$300 thousand
-  messageP as of March 2016 dimentia costs the global economy
+  message: as of March 2016 dimentia costs the global economy
 	$818 billion, a figure that is continuously rising.
 
 -
@@ -68,7 +68,7 @@ Plausible Questions:
 -
 */
 var quiz = [{
-    question: "Alzheimer’s disease is not fatal.",
+		question: "Alzheimer’s disease is not fatal.",
     choices: [true, false],
     message: "Alzheimer's disease has no survivors.",
     correctAnswer: false,
