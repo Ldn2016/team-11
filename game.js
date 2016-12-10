@@ -20,6 +20,8 @@ function endGame() {
 	$("#end_screen").show();
 	$("#question_screen").hide();
 	$("#initial_screen").hide();
+	$("#display_name2").text(userName);
+	$("#display_score2").text(score);
 }
 
 /*
