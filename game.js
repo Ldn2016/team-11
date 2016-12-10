@@ -8,7 +8,13 @@ var numberOfQuestionsAnsweredCorrectly = 0;
 var numberOfQuestionsAnsweredWrong = 0;
 var score = 0;
 var quiz;
+var currentQuestion; //holds the question object currently being displayed to the user
+var currentQuestionId; //hold the id of the current question
+var alreadyAnsweredQuestionIdsSet = {};
 
+/*
+Gives the initial start of the game
+*/
 function startGame() {
   readyToPlay = true;
   $("#initial_screen").hide();
@@ -18,22 +24,74 @@ function startGame() {
   populateQuiz();
   
   var whichQuestionToDisplay = getRandomQuestion();
-  populateQuestion(whichQuestionToDisplay);
+  populateQuestion(quiz[whichQuestionToDisplay], whichQuestionToDisplay);
   //console.log(whichQuestionToDisplay);
+  $("#next_question").click(function() {
+    var isCorrectAnswer = checkAnswerIsCorrect();
+	if(isCorrectAnswer) {
+		alert("Correct!");
+		++numberOfQuestionsAnsweredCorrectly;
+	} else {
+		alert("Wrong answer!");
+		++numberOfQuestionsAnsweredWrong;
+	}
+	updateScore();
+	
+	displayNextQuestion();
+  });
+}
+
+function updateScore() {
+	score = numberOfQuestionsAnsweredCorrectly - numberOfQuestionsAnsweredWrong;
+}
+
+function displayNextQuestion() {
+	$("#display_score").text(score);
+	$('#question_choices .row').remove();
+	var whichQuestionToDisplay = getRandomQuestion();
+    populateQuestion(quiz[whichQuestionToDisplay], whichQuestionToDisplay);
+}
+
+function getSelectedAnswers() {
+	return $('#question_choices input:checked');
+}
+
+/*
+Returns true if the user answered the question correctly, false otherwise
+*/
+function checkAnswerIsCorrect() {
+	var selectedAnswersIds = [];
+	var correctAnswerIds = [];
+	getSelectedAnswers().each(function() {
+		selectedAnswersIds.push($(this).val());
+	});
+	for(var i = 0; i < currentQuestion.choices.length; ++i) {
+		if(currentQuestion.choices[i].isCorrect) correctAnswerIds.push(i);
+	}
+	if(selectedAnswersIds.length != correctAnswerIds.length) return false;
+	selectedAnswersIds.sort();
+	correctAnswerIds.sort();
+	for(var i = 0; i < selectedAnswersIds.length; ++i) {
+		if(selectedAnswersIds[i] != correctAnswerIds[i]) return false;
+	}
+	return true;
 }
 
 /*
 Populates the given question on the screen
 */
-function populateQuestion(questionToPopulate) {
+function populateQuestion(questionToPopulate, id) {
+  currentQuestion = questionToPopulate;
+  currentQuestionId = id;
+  alreadyAnsweredQuestionIdsSet[id.toString()] = true;
   $("#question_body").text("Question: " + questionToPopulate.question);
   //console.log("populating question: " + questionToPopulate.question);
   var c = $("#options");
   for(var i = 0; i < questionToPopulate.choices.length; ++i) {
     var choiceId = i;
-    var choiceBody = questionToPopulate.choices[i];
+    var choiceBody = questionToPopulate.choices[i].body;
     
-    var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" id="choice_id_' + choiceId + '">'));
+    var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" name="answers" value="' + choiceId + '">'));
     var inputGroup = $('<div class="input-group input-group-lg">');
     
     inputGroup.append(intputGroupAddOn);
@@ -47,26 +105,41 @@ function populateQuestion(questionToPopulate) {
 
 function populateQuiz() {
   quiz = [{
-    question: "Alzheimer’s disease is not fatal.",
-    choices: ["true", "false"],
-    message: "Alzheimer's disease has no survivors.",
-    correctAnswer: false,
-    }, {
-    question: "Alzheimer's has occurred only at ages older than:",
-    choices: ["33", "37", "42", "55", "None of the above."],
-    message: "Alzheimer's has been recorded to happen at ages as young as 30.",
-    correctAnswer: "None of the above.",
-    }, {
-    question: "Alzheimer's is the biggest killer in the UK?",
-    choices: ["true", "false"],
-    correctAnswer: true,
-    message: "Alzheimer's is the biggest killer in the UK.",
+		question: "Alzheimer’s disease is not fatal.",
+		choices: [
+			{body: "true", isCorrect: true},
+			{body: "false", isCorrect: false}
+		],
+		message: "Alzheimer's disease has no survivors.",
+    },
+	{
+		question: "Alzheimer's has occurred only at ages older than:",
+		choices: [
+			{body: "33", isCorrect: false},
+			{body: "37", isCorrect: false},
+			{body: "42", isCorrect: false},
+			{body: "55", isCorrect: false},
+			{body: "None of the above.", isCorrect: true}
+		],
+		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+		correctAnswer: "None of the above.",
+    },
+	{
+		question: "Alzheimer's is the biggest killer in the UK?",
+		choices: [
+			{body: "true", isCorrect: true},
+			{body: "false", isCorrect: false}
+		],
+		message: "Alzheimer's is the biggest killer in the UK.",
 
-    }, {
-    question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
-    choices: ["true", "false"],
-    correctAnswer: true,
-    message: "Alzheimer's has many more symptoms that the average person is aware of."
+    },
+	{
+		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+		choices: [
+			{body: "true", isCorrect: true},
+			{body: "false", isCorrect: false}
+		],
+		message: "Alzheimer's has many more symptoms that the average person is aware of."
   }];
 }
 
@@ -88,11 +161,20 @@ $(document).ready(function() {
 });
 
 /*
-randomly pics an index in the range [0, quiz.length-1]
+randomly pics an index in the range [0, quiz.length-1] that does NOT
+appear in the alreadyAnsweredQuestionIdsSet map as a key to avoid picking the same
+question again
 */
 function getRandomQuestion() {
-  var whichIndex = Math.floor(Math.random() * quiz.length);
-  return quiz[whichIndex];
+	var counter = 0;
+	while(counter < 100) {
+		var whichIndex = Math.floor(Math.random() * quiz.length);
+		if(!(whichIndex.toString() in alreadyAnsweredQuestionIdsSet)) {
+			return whichIndex;
+		}
+		++counter;
+	}
+  return 0;
 }
 
 // `input` will be defined elsewhere, it's a means
