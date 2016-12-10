@@ -136,10 +136,10 @@ function populateQuiz() {
 			{body: "37", isCorrect: false},
 			{body: "42", isCorrect: false},
 			{body: "55", isCorrect: false},
-			{body: "None of the above.", isCorrect: true}
+			{body: "None of the below.", isCorrect: true}
 		],
 		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
-		correctAnswer: "None of the above.",
+		correctAnswer: "None of the below.",
     },
 	{
 		question: "Alzheimer's is the biggest killer in the UK.",
@@ -244,9 +244,9 @@ var quiz = [{
     correctAnswer: false,
   }, {
     question: "Alzheimer's has occurred only at ages older than:",
-    choices: [33, 37, 42, 55, "None of the above."],
+    choices: [33, 37, 42, 55, "None of the below."],
     message: "Alzheimer's has been recorded to happen at ages as young as 30.",
-    correctAnswer: "None of the above.",
+    correctAnswer: "None of the below.",
   }, {
     question: "Alzheimer's is the biggest killer in the UK?",
     choices: [true, false],
