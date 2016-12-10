@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
-	
-
-
 
 	<head>
 		<title>Dynamic Quiz Project</title>
 		<link type='text/css' rel='stylesheet' href='stylesheet.css'/>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans"/>
 
+		<style>
+		.aboutmebutton {
+            background-color: black;
+            color: white;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font: Helvetica;
+            border: 1.5px solid white;
+            position: absolute;
+            left: 300px; top:272px;
+            -webkit-animation: popin 8s ; /* Chrome, Safari, Opera */
+            animation: popin 8s ;
+        }
+		</style>
+
 	</head>
+
+
 	<body>
+	<div id = "home">
+	<span onclick="show('Game');" class="button aboutmebutton c" data-toggle="tooltip" title="Learn more about my interests." data-placement="left">ABOUT ME</span>
+	</div>
+	<div id ='Game'>
 		<div id='container'>
 			<div id='title'>
 				<h1>Learning Js Properly: Project #1 - Dynamic Quiz</h1>
@@ -28,5 +48,6 @@
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 		<script type="text/javascript" src='questions.json'></script>
 		<script type='text/javascript' src='jsquiz.js'></script>
+	</div>
 	</body>
 </html>
