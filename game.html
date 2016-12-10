@@ -1,12 +1,56 @@
-/*
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Martin Sova</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	
+	<script>
+
+		// show the given page, hide the rest
+		function show(elementID) {
+			// try to find the requested page and alert if it's not found
+			var ele = document.getElementById(elementID);
+			if (!ele) {
+				alert("no such element");
+				return;
+			}
+
+			// get all pages, loop through them and hide them
+			var pages = document.getElementsByClassName('page');
+			for(var i = 0; i < pages.length; i++) {
+				pages[i].style.display = 'none';
+			}
+
+			// then show the requested page
+			ele.style.display = 'block';
+			}
+
+		$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+		});
+
+
+
+
+		/* QUESTION AND ANSWERS JAVASCRIPT*/
+
+		/*
 Write the JavaScript for the game here
 */
-$(document).ready(function() {
-	alert("Hello world");
-});
-
-
-// `input` will be defined elsewhere, it's a means
 
 
 var quiz = [{
@@ -37,7 +81,7 @@ var quiz = [{
   var quiz = $('#quiz'); //Quiz div object
   
   // Display initial question
-  displayNext();
+  displayNext(	);
   
   // Click handler for the 'next' button
   $('#next').on('click', function (e) {
@@ -176,3 +220,296 @@ var quiz = [{
     return score;
   }
 })();
+
+	</script>
+
+	<style type="text/css">
+
+		@media (min-width: 1200px) {
+			.container {
+				max-width: 970px;
+			}
+		}
+		
+		.navbar {
+			font-family: Helvetica;
+			background-color: darkblue;
+			width: 100%; 
+			margin: 0 auto;
+			border-width: 0px;
+			-webkit-box-shadow: 0px 0px;
+			box-shadow: 0px 0px;
+			background-color: rgba(0,0,0,0.0);
+			background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+			background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+			background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+
+		}
+
+
+		p, h1 {
+				font-family: Helvetica;
+		}
+
+		h {
+			color:white;
+		}
+
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+			text-align: left;
+		}
+
+		body {
+			background-color:black
+		}
+
+		
+		h:hover {
+			color: #5D9CEC;
+		}
+
+		.c:hover {
+			background-color: #5D9CEC;
+		}
+
+		/* HOME PAGE*/
+
+		@keyframes popin {
+			0%   { transform:scale(0.0); opacity:0.0; }
+			55%  { transform:scale(0.0); opacity:0.0; }
+			100% { transform:scale(1.0); opacity:1.0; }
+		}
+
+		.playbutton {
+			background-color: black;
+			color: white;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 40px;
+			padding-right: 40px;
+			font: Helvetica;
+			border: 1.5px solid white;
+			position: absolute;
+			left: 535px; top:445px;
+			-webkit-animation: popin 8s ; /* Chrome, Safari, Opera */
+			animation: popin 8s ;
+		}
+
+
+		span {
+			color:white;
+			cursor:pointer;
+		}
+
+		/* play page */
+
+		.playbuttonemail {
+			background-color: black;
+			color: white;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 40px;
+			padding-right: 40px;
+			font: Helvetica;
+			border: 1.5px solid white;
+			position: absolute;
+			left: 500px; top:272px;
+			-webkit-animation: emailbutton 3s ; /* Chrome, Safari, Opera */
+			animation: emailbutton 3s ;
+		}
+
+		@keyframes emailbutton {
+			0%   { transform:scale(0.1); opacity:0.1; }
+			100% { transform:scale(1.0); opacity:1.0; }
+		}
+
+		/*EXPERIENCE PAGE*/
+
+		.row {
+			border-bottom: 1px solid white;
+			color: white;
+			font-family: Helvetica;
+			width: 900px;
+			position: absolute;
+			top: 100px;
+			left: 200px;
+		}
+
+		.col-xs-3 {
+			color: white;
+			font-family: Helvetica;
+			border-right: 1px solid white;
+			position: absolute;
+			top: 100px;
+			left: 200px;
+		}
+
+		/*BACKGROUND PAGE*/
+
+		.backgroundtexttitles {
+			font-family: Helvetica;
+			color: white;
+			font-size: 30px;
+			position: absolute;
+			top: 210px;
+			left: 135px;
+			-webkit-animation-name: backgroundpage; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+			animation-name: backgroundpage;
+			animation-duration: 6s;
+
+		}
+
+		.backgroundtextdescription {
+			font-family: Helvetica;
+			color: white;
+			font-size: 20px;
+			position: absolute;
+			top: 220px;
+			left: 350px;
+			-webkit-animation-name: backgroundpage; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+			animation-name: backgroundpage;
+			animation-duration: 6s;
+
+		}
+
+		.btn-default {
+			background-color: black;
+			color: white;
+
+		}
+
+		.martinprofilepic {
+			position: absolute;
+			top: 225px;
+			right: -215px;
+			width: 570px;
+			height: 170px;
+			-webkit-animation-name: martinpic; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 7s; /* Chrome, Safari, Opera */
+			animation-name: martinpic;
+			animation-duration: 7s;
+		}
+
+		@keyframes martinpic {
+			0%   {transform:scale(0.8); opacity:0.0;}
+			100% {transform:scale(1.0);opacity:1.0;}
+		}
+
+		.modal-header {
+			border-top:1px solid white;
+			border-left:1px solid white;
+			border-right:1px solid white;
+			text-align: left;
+			font-size: 23px;
+			color: white;
+			background-color: #287bc8;
+			border-bottom:0px;
+		}
+
+		.close {
+			color: #fff; 
+			opacity: 1;
+		}
+
+		box {
+			width: 2px;
+			height: 430px;
+			background-color: white;
+			position: absolute;
+			top: 150px;
+			left: 305px;
+			-webkit-animation-name: backgroundpage; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+			animation-name: backgroundpage;
+			animation-duration: 6s;
+		}
+
+		@keyframes backgroundpage {
+			0%   { transform:scale(0.0); opacity:0.0; }
+			100% { transform:scale(1.0); opacity:1.0; }
+		}
+
+		/*ABOUT ME PAGE*/
+
+		aboutmebox {
+			width: 100%;
+			height: 50px;
+			background-color: white;
+			position: absolute;
+			top: 100px;
+			-webkit-animation-name: aboutmepage; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
+			animation-name: aboutmepage;
+			animation-duration: 8s;
+		}
+
+		@keyframes aboutmepage {
+			0%   {opacity:0.0; }
+			100% {opacity:1.0; }
+		}
+
+		moveme {
+			font-weight: bold;
+			font-family: Helvetica;
+			font-size: 35px;
+			position: absolute;
+			-webkit-animation: memoveright 3s;
+			animation: memoveright 3s;
+			-webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+			-moz-animation-fill-mode:forwards; /*FF 5+*/
+			-o-animation-fill-mode:forwards; /*Not implemented yet*/
+			-ms-animation-fill-mode:forwards; /*IE 10+*/
+			animation-fill-mode:forwards; /*when the spec is finished*/
+		}
+
+		/* Standard syntax */
+		@keyframes memoveright {
+			0%   {right:1000px; top:100px; opacity:0.0}
+			75%  {right:1000px; top:100px; opacity:0.0}
+			100% {right: 1105px;top:100px; opacity:100.0}
+		}
+
+		moveabout {
+			font-weight: bold;
+			font-family: Helvetica;
+			font-size: 35px;
+			position: absolute;
+			-webkit-animation: aboutmoveleft 3s;
+			animation: aboutmoveleft 3s;
+			-webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+			-moz-animation-fill-mode:forwards; /*FF 5+*/
+			-o-animation-fill-mode:forwards; /*Not implemented yet*/
+			-ms-animation-fill-mode:forwards; /*IE 10+*/
+			animation-fill-mode:forwards; /*when the spec is finished*/
+		}
+
+		/* Standard syntax */
+		@keyframes aboutmoveleft {
+			0%   {left:-1000px; top:100px; opacity:0.0}
+			75%  {right:-1000px; top:100px; opacity:0.0}
+			100% {left: 20px;top:100px; opacity:100.0}
+		}
+
+
+
+
+	</style>
+
+</head>
+
+<!-- END HEAD -->
+<!-- START BODY -->
+
+<body>
+<div id="Home" class="page" style="">
+	<span onclick="show('play');" class="button playbutton c" data-toggle="tooltip" title="press to start game." data-placement="bottom">play</span> 
+</div>
+
+
+</body>
+</html>
