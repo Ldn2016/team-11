@@ -66,11 +66,6 @@
 
     }
 
-    .jumbotron {
-      background-color: black;
-
-    }
-
 
     @keyframes popin {
       0%   { transform:scale(0.0); opacity:0.0; }
@@ -78,16 +73,32 @@
       100% { transform:scale(1.0); opacity:1.0; }
     }
 
+    #div1 {-webkit-animation-timing-function: ease;
+    }
+
+        r {
+      width: 100px;
+      height: 50px;
+      font-weight: bold;
+      font-family: Helvetica;
+      font-size: 30px;
+      position: absolute;
+      -webkit-animation: mymovefromright 7s;
+      animation: mymovefromright 7s;
+      -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+      -moz-animation-fill-mode:forwards; /*FF 5+*/
+      -o-animation-fill-mode:forwards; /*Not implemented yet*/
+      -ms-animation-fill-mode:forwards; /*IE 10+*/
+      animation-fill-mode:forwards; /*when the spec is finished*/
+    }
+
+
 
     </style>
 
   </head>
   <body>
-<<<<<<< HEAD
-    <!-- make container ease from left -->
-=======
     
->>>>>>> origin/master
     <div class="container">
       <div class="header clearfix">
         <nav>
@@ -102,37 +113,22 @@
 		<div id="initial_screen">
 			<div class="intro">
 			<h1><font color="white">How Much Do You Know?</font></h1>
-			<p class="lead">Play to win a cool <span></span>apchat filter for funky selfies. Just type in your name and get started!</p>
+			<p class="lead">Play to win a cool Snapchat filter for funky selfies. Just type in your name and get started!</p>
 			
 			<div class="input-group">
-
 			  <span class="input-group-addon" id="basic-addon1">Name</span>
-
 			  <input type="text" id="user_name" class="input-lg form-control" placeholder="Type your name here" aria-describedby="basic-addon1">
 			</div>
-
 			<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Play</a></p>
-      
 		  </div>
 		</div>
 		<div id="question_screen">
-
 			<div class="jumbotron">
-			<h3><span id="display_name"></span>, so far your score is: <span id="display_score"></span></h3>
+			<h1><span id="display_name"></span>'s score so far: <span id="display_score"></span></h1>
 			<p class="lead" id="question_body"></p>
-			
-			<div class="row">
-			  <div class="col-lg-6">
-				<div class="input-group" id="question_choices">
-				  <span class="input-group-addon">
-					<input type="checkbox" aria-label="...">
-				  </span>
-				  <input type="text" class="form-control" aria-label="...">
-				  
-				</div><!-- /input-group -->
-			  </div><!-- /.col-lg-6 -->
-			</div><!-- /.row -->
-			<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Next Question</a></p>
+			<div id="question_choices">
+				<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-success btn-block" href="#" role="button">Submit</a></p>
+			</div>
 		  </div>
 		</div>
 		</div>
