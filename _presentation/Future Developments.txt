@@ -4,4 +4,8 @@ Future Developments:
 	Social media (Facebook) integration
 	A reward that includes a Snapchat filter
 	Add time limit to questions to simulate the experience of a dementia sufferer
-	
+
+ Aims:
+ 	Remind people it's a physical disease
+ 	Challenge people's preconceptions/knowledge of dementia/Alzheimer's
+ 	Raise awareness of the severity of dementia [via sharing]

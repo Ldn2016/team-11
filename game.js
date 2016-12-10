@@ -26,6 +26,7 @@ function startGame() {
 Populates the given question on the screen
 */
 function populateQuestion(questionToPopulate) {
+<<<<<<< HEAD
   $("#question_body").text("Question: " + questionToPopulate.question);
   //console.log("populating question: " + questionToPopulate.question);
   var c = $("#options");
@@ -43,6 +44,25 @@ function populateQuestion(questionToPopulate) {
     $("#question_choices").prepend(row);
   }
   
+=======
+	$("#question_body").text("Question: " + questionToPopulate.question);
+	//console.log("populating question: " + questionToPopulate.question);
+	var c = $("#options");
+	for(var i = 0; i < questionToPopulate.choices.length; ++i) {
+		var choiceId = i;
+		var choiceBody = questionToPopulate.choices[i];
+		
+		var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" id="choice_id_' + choiceId + '">'));
+		var inputGroup = $('<div class="input-group input-group-lg">');
+		
+		inputGroup.append(intputGroupAddOn);
+		inputGroup.append($('<input type="text" class="form-control " value="' + choiceBody + '">'));
+		var colLg = $('<div class="col-lg-6">').append(inputGroup);
+		var row = $('<div class="row" style="margin-bottom: 10px;">').append(colLg);
+		$("#question_choices").prepend(row);
+	}
+	
+>>>>>>> origin/master
 }
 
 function populateQuiz() {
