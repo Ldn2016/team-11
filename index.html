@@ -36,7 +36,7 @@
       text-align: center;
       font: 32px Helvetica;
       position: absolute;
-      left: 100px; top:195px;
+      left: 2px; top:100px;
       -webkit-animation: popin 3s ; /* Chrome, Safari, Opera */
       animation: popin 3s ;
 
@@ -54,6 +54,13 @@
       color: white;
     }
 
+    .btn {
+
+      color: orange;
+      background-color: black;
+      border-color: orange;
+
+    }
 
 
     @keyframes popin {
@@ -74,23 +81,23 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="http://www.google.com"><font color="orange">About Us</font></a></li>
+            <li role="presentation"><a href="http://www.alzheimersresearchuk.org/"><font color="orange">About Us</font></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted"><font color="orange">A</font>lzheimer's <font color="orange">R</font>esearch <font color="orange">UK</font></h3>
+        <h3><font color="white"><font color="orange">A</font>lzheimer's <font color="orange">R</font>esearch <font color="orange">UK</font></h3>
       </div>
 
 	<div id="main_content">
 		<div id="initial_screen">
 			<div class="intro">
-			<h1><font color="white">Raising Dementia Awareness</font></h1>
-			<p class="lead">Interested in playing a game and winning a cool Snapchat filter for funky selfies? Just type in your name and get started!</p>
+			<h1><font color="white">How Much Do You Know?</font></h1>
+			<p class="lead">Play to win a cool Snapchat filter for funky selfies. Just type in your name and get started!</p>
 			
 			<div class="input-group">
 			  <span class="input-group-addon" id="basic-addon1">Name</span>
 			  <input type="text" id="user_name" class="input-lg form-control" placeholder="Type your name here" aria-describedby="basic-addon1">
 			</div>
-			<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-success btn-block" href="#" role="button">Play</a></p>
+			<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Play</a></p>
 		  </div>
 		</div>
 		<div id="question_screen">
@@ -115,9 +122,6 @@
 		</div>
 	</div>
 
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
 
     </div> <!-- /container -->
 
