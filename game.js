@@ -130,7 +130,7 @@ function populateQuiz() {
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
 		],
-		message: "Alzheimer's is the biggest killer in the UK.",
+		message: "Alzheimer's is the biggest killer in the UK; it is responsible for more deaths than cancer and heart diseases combined.",
 
     },
 	{
