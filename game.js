@@ -109,7 +109,7 @@ Plausible Questions:
 
 - Who has a higher risk of AD (ans: women)
 		other possible: men, equally the same
-		message: "Nearly twice as many women have AD as men."
+		message: "Women are nearly twice as likely to develop AD than men."
 
 - What are the two protiens responsible for dimentia?
 			amyloid (ans)
@@ -128,14 +128,39 @@ Plausible Questions:
 			$765 billion
 			$560 million
 			$300 thousand
-  messageP as of March 2016 dimentia costs the global economy
+  message: as of March 2016 dimentia costs the global economy
 	$818 billion, a figure that is continuously rising.
 
 -
 
 -
 */
+<<<<<<< HEAD
 
+=======
+var quiz = [{
+		question: "Alzheimer’s disease is not fatal.",
+    choices: [true, false],
+    message: "Alzheimer's disease has no survivors.",
+    correctAnswer: false,
+	}, {
+    question: "Alzheimer's has occurred only at ages older than:",
+    choices: [33, 37, 42, 55, "None of the above."],
+    message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+    correctAnswer: "None of the above.",
+  }, {
+    question: "Alzheimer's is the biggest killer in the UK?",
+    choices: [true, false],
+    correctAnswer: true,
+    message: "Alzheimer's is the biggest killer in the UK.",
+
+  }, {
+    question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+    choices: [true, false],
+    correctAnswer: true,
+    message: "Alzheimer's has many more symptoms that the average person is aware of."
+  }];
+>>>>>>> origin/master
 
   var questionCounter = 0; //Tracks question number
   var selections = []; //Array containing user choices
