@@ -26,14 +26,9 @@ else if (counter === 3) {
 	var new_string = question;
 	for (var i = 0 ; i < new_string.length; i++) {
 		if (i % 2 = 0) {
-			new_string[]
+			new_string[i] = Math.random();
 
 		}
-		i += 2;
-		var second = new_string[i];
-		var first = new_string[i-2];
-		new_string[i-2] = second;
-		new_string[i] = first;
 	}
 	return new_string;
 
