@@ -29,7 +29,7 @@ function startGame() {
   $("#next_question").click(function() {
     var isCorrectAnswer = checkAnswerIsCorrect();
 	if(isCorrectAnswer) {
-		alert("Correct!");
+		alert("Correct: " + currentQuestion.message);
 		++numberOfQuestionsAnsweredCorrectly;
 	} else {
 		alert("Wrong answer: " + currentQuestion.message);
@@ -105,7 +105,7 @@ function populateQuestion(questionToPopulate, id) {
 
 function populateQuiz() {
   quiz = [{
-		question: "Alzheimer’s disease is not fatal.",
+		question: "Alzheimer’s disease is fatal.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -121,11 +121,11 @@ function populateQuiz() {
 			{body: "55", isCorrect: false},
 			{body: "None of the above.", isCorrect: true}
 		],
-		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+		message: "The Alzheimer's disease has been recorded to happen at ages as young as 30.",
 		correctAnswer: "None of the above.",
     },
 	{
-		question: "Alzheimer's is the biggest killer in the UK?",
+		question: "The Alzheimer's disease is the biggest killer in the UK.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -134,7 +134,7 @@ function populateQuiz() {
 
     },
 	{
-		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+		question: "The most prominent symptoms of the Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
