@@ -1,2 +1,4 @@
 Future Developments:
-	A greater number of questions to choose from
+	A greater number of questions to choose from - to ask the user
+	A mobile app supporting iOS & Android
+	
