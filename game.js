@@ -42,7 +42,7 @@ function startGame() {
   $("#next_question").click(function() {
     var isCorrectAnswer = checkAnswerIsCorrect();
 	if(isCorrectAnswer) {
-		alert("Correct!");
+		alert("Correct answer: " + currentQuestion.message);
 		++numberOfQuestionsAnsweredCorrectly;
 	} else {
 		alert("Wrong answer: " + currentQuestion.message);
