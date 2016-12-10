@@ -135,7 +135,7 @@ Plausible Questions:
 
 -
 */
-<<<<<<< HEAD
+
 
 =======
 var quiz = [{
@@ -160,7 +160,6 @@ var quiz = [{
     correctAnswer: true,
     message: "Alzheimer's has many more symptoms that the average person is aware of."
   }];
->>>>>>> origin/master
 
   var questionCounter = 0; //Tracks question number
   var selections = []; //Array containing user choices
