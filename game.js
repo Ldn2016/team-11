@@ -32,7 +32,7 @@ function startGame() {
 		alert("Correct!");
 		++numberOfQuestionsAnsweredCorrectly;
 	} else {
-		alert("Wrong answer!");
+		alert("Wrong answer: " + currentQuestion.message);
 		++numberOfQuestionsAnsweredWrong;
 	}
 	updateScore();
