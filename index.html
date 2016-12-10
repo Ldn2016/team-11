@@ -96,9 +96,34 @@
     .donatefeatures {
     position: fixed;
     padding: 2em;
-    left: 50%;
-    top: 70%;
+    left: 70%;
+    top: 65%;
+
     transform: translate(-50%, -50%);
+    }
+
+    .claimfeatures {
+    position: fixed;
+    border-color: white;
+    padding: 2em;
+    left: 30%;
+    top: 65%;
+    color: #eef442;
+    transform: translate(-50%, -50%);
+    }
+
+    .snapchatimg {
+    position: fixed;
+    border-color: white;
+    padding: 2em;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    }
+
+    .btn2:hover {
+      background: #eef442;
+      color:white;
     }
 
 
@@ -168,9 +193,11 @@
       <div class="jumbotron">
       <h3>The reward for your awareness is a new, unique Snapchat filter. Please donate to 
       Alzheimer's Research UK via the donate button, our site, or Snapcash so we can give Alzheimer patients the treatment they need. </span></h3>
-      <img src="img_5716.pdf">
-      <img src="img_5716.pdf" alt="some_text" style="width:120px;height:228px;">
-      <p class="lead" id="reward_body"></p>
+      <img src = "http://dwglogo.com/wp-content/uploads/2016/06/Snapchat_Logo.png" class = "snapchatimg" width = "305px" height = "200px">
+      <button type="button" class="claimfeatures btn btn2 btn-default" data-size="small" >Claim Filter</button>
+      <p class="lead" id="end_body"></p>
+      <button type="button" class="donatefeatures btn btn-warning" data-size="small" >Donate</button>
+      <p class="lead" id="end_body"></p>
       </div>
     </div>
     </div>
