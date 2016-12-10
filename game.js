@@ -4,28 +4,96 @@ Write the JavaScript for the game here
 
 var readyToPlay = false;
 var userName = "";
+var numberOfQuestionsAnsweredCorrectly = 0;
+var numberOfQuestionsAnsweredWrong = 0;
+var score = 0;
+var quiz;
 
 function startGame() {
 	readyToPlay = true;
 	$("#initial_screen").hide();
 	$("#question_screen").show();
+	$("#display_name").text(userName);
+	$("#display_score").text(score);
+	populateQuiz();
+	
+	var whichQuestionToDisplay = getRandomQuestion();
+	populateQuestion(whichQuestionToDisplay);
+	//console.log(whichQuestionToDisplay);
+}
+
+/*
+Populates the given question on the screen
+*/
+function populateQuestion(questionToPopulate) {
+	$("#question_body").text("Question: " + questionToPopulate.question);
+	console.log("populating question: " + questionToPopulate.question);
+	var c = $("#options");
+	for(var i = 0; i < question.choices.length; ++i) {
+		var choiceId = i;
+		var choiceBody = question.choices[i];
+		var toAppend = ' \
+			<span class="input-group-addon"> \
+			<input type="checkbox" aria-label="..."> \
+			</span> \
+			<input type="text" class="form-control" id="choice_id"aria-label="..."> \
+		';
+		$("#question_choices").append($("<option />").val(this.ImageFolderID).text(this.Name));
+	}
+	$.each(result, function() {
+		options.append($("<option />").val(this.ImageFolderID).text(this.Name));
+	});
+}
+
+function populateQuiz() {
+	quiz = [{
+		question: "Alzheimer’s disease is not fatal.",
+		choices: [true, false],
+		message: "Alzheimer's disease has no survivors.",
+		correctAnswer: false,
+		}, {
+		question: "Alzheimer's has occurred only at ages older than:",
+		choices: [33, 37, 42, 55, "None of the above."],
+		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+		correctAnswer: "None of the above.",
+	  }, {
+		question: "Alzheimer's is the biggest killer in the UK?",
+		choices: [true, false],
+		correctAnswer: true,
+		message: "Alzheimer's is the biggest killer in the UK.",
+
+	  }, {
+		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+		choices: [true, false],
+		correctAnswer: true,
+		message: "Alzheimer's has many more symptoms that the average person is aware of."
+  }];
 }
 
 function displayInitialScreen() {
 	$("#initial_screen").show();
 	$("#play_button").click(function() {
 	  userName = $("#user_name").val();
-	  alert(userName + " starting the game!");
 	  startGame();
 	});
 }
 
+/*
+Starting point of the app
+*/
 $(document).ready(function() {
 	$("#initial_screen").hide();
 	$("#question_screen").hide();
 	displayInitialScreen();
 });
 
+/*
+randomly pics an index in the range [0, quiz.length-1]
+*/
+function getRandomQuestion() {
+	var whichIndex = Math.floor(Math.random() * quiz.length);
+	return quiz[whichIndex];
+}
 
 // `input` will be defined elsewhere, it's a means
 
@@ -67,28 +135,7 @@ Plausible Questions:
 
 -
 */
-var quiz = [{
-    question: "Alzheimer’s disease is not fatal.",
-    choices: [true, false],
-    message: "Alzheimer's disease has no survivors.",
-    correctAnswer: false,
-	}, {
-    question: "Alzheimer's has occurred only at ages older than:",
-    choices: [33, 37, 42, 55, "None of the above."],
-    message: "Alzheimer's has been recorded to happen at ages as young as 30.",
-    correctAnswer: "None of the above.",
-  }, {
-    question: "Alzheimer's is the biggest killer in the UK?",
-    choices: [true, false],
-    correctAnswer: true,
-    message: "Alzheimer's is the biggest killer in the UK.",
 
-  }, {
-    question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
-    choices: [true, false],
-    correctAnswer: true,
-    message: "Alzheimer's has many more symptoms that the average person is aware of."
-  }];
 
   var questionCounter = 0; //Tracks question number
   var selections = []; //Array containing user choices
