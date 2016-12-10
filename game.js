@@ -11,6 +11,16 @@ var quiz;
 var currentQuestion; //holds the question object currently being displayed to the user
 var currentQuestionId; //hold the id of the current question
 var alreadyAnsweredQuestionIdsSet = {};
+var numberOfQuestionsToShow = 4;
+
+/*
+Function being called when the game is at its end
+*/
+function endGame() {
+	$("#end_screen").show();
+	$("#question_screen").hide();
+	$("#initial_screen").hide();
+}
 
 /*
 Gives the initial start of the game
@@ -19,6 +29,7 @@ function startGame() {
   readyToPlay = true;
   $("#initial_screen").hide();
   $("#question_screen").show();
+  $("#end_screen").hide();
   $("#display_name").text(userName);
   $("#display_score").text(score);
   populateQuiz();
@@ -29,7 +40,7 @@ function startGame() {
   $("#next_question").click(function() {
     var isCorrectAnswer = checkAnswerIsCorrect();
 	if(isCorrectAnswer) {
-		alert("Correct: " + currentQuestion.message);
+		alert("Correct!");
 		++numberOfQuestionsAnsweredCorrectly;
 	} else {
 		alert("Wrong answer: " + currentQuestion.message);
@@ -37,7 +48,11 @@ function startGame() {
 	}
 	updateScore();
 	
-	displayNextQuestion();
+	if(numberOfQuestionsToShow == (numberOfQuestionsAnsweredCorrectly + numberOfQuestionsAnsweredWrong)) {
+		endGame();
+	} else {
+		displayNextQuestion();
+	}
   });
 }
 
@@ -105,7 +120,7 @@ function populateQuestion(questionToPopulate, id) {
 
 function populateQuiz() {
   quiz = [{
-		question: "Alzheimer’s disease is fatal.",
+		question: "Alzheimer’s disease is not fatal.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -121,11 +136,11 @@ function populateQuiz() {
 			{body: "55", isCorrect: false},
 			{body: "None of the above.", isCorrect: true}
 		],
-		message: "The Alzheimer's disease has been recorded to happen at ages as young as 30.",
+		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
 		correctAnswer: "None of the above.",
     },
 	{
-		question: "The Alzheimer's disease is the biggest killer in the UK.",
+		question: "Alzheimer's is the biggest killer in the UK?",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -134,7 +149,7 @@ function populateQuiz() {
 
     },
 	{
-		question: "The most prominent symptoms of the Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements",
+		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -157,6 +172,7 @@ Starting point of the app
 $(document).ready(function() {
   $("#initial_screen").hide();
   $("#question_screen").hide();
+  $("#end_screen").hide();
   displayInitialScreen();
 });
 
