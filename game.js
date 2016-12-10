@@ -10,41 +10,22 @@ var score = 0;
 var quiz;
 
 function startGame() {
-  readyToPlay = true;
-  $("#initial_screen").hide();
-  $("#question_screen").show();
-  $("#display_name").text(userName);
-  $("#display_score").text(score);
-  populateQuiz();
-  
-  var whichQuestionToDisplay = getRandomQuestion();
-  populateQuestion(whichQuestionToDisplay);
-  //console.log(whichQuestionToDisplay);
+	readyToPlay = true;
+	$("#initial_screen").hide();
+	$("#question_screen").show();
+	$("#display_name").text(userName);
+	$("#display_score").text(score);
+	populateQuiz();
+	
+	var whichQuestionToDisplay = getRandomQuestion();
+	populateQuestion(whichQuestionToDisplay);
+	//console.log(whichQuestionToDisplay);
 }
 
 /*
 Populates the given question on the screen
 */
 function populateQuestion(questionToPopulate) {
-<<<<<<< HEAD
-  $("#question_body").text("Question: " + questionToPopulate.question);
-  //console.log("populating question: " + questionToPopulate.question);
-  var c = $("#options");
-  for(var i = 0; i < questionToPopulate.choices.length; ++i) {
-    var choiceId = i;
-    var choiceBody = questionToPopulate.choices[i];
-    
-    var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" id="choice_id_' + choiceId + '">'));
-    var inputGroup = $('<div class="input-group">');
-    
-    inputGroup.append(intputGroupAddOn);
-    inputGroup.append($('<input type="text" class="form-control " value="' + choiceBody + '">'));
-    var colLg = $('<div class="col-lg-6">').append(inputGroup);
-    var row = $('<div class="row" style="margin-bottom: 10px;">').append(colLg);
-    $("#question_choices").prepend(row);
-  }
-  
-=======
 	$("#question_body").text("Question: " + questionToPopulate.question);
 	//console.log("populating question: " + questionToPopulate.question);
 	var c = $("#options");
@@ -62,57 +43,56 @@ function populateQuestion(questionToPopulate) {
 		$("#question_choices").prepend(row);
 	}
 	
->>>>>>> origin/master
 }
 
 function populateQuiz() {
-  quiz = [{
-    question: "Alzheimer’s disease is not fatal.",
-    choices: ["true", "false"],
-    message: "Alzheimer's disease has no survivors.",
-    correctAnswer: false,
-    }, {
-    question: "Alzheimer's has occurred only at ages older than:",
-    choices: ["33", "37", "42", "55", "None of the above."],
-    message: "Alzheimer's has been recorded to happen at ages as young as 30.",
-    correctAnswer: "None of the above.",
-    }, {
-    question: "Alzheimer's is the biggest killer in the UK?",
-    choices: ["true", "false"],
-    correctAnswer: true,
-    message: "Alzheimer's is the biggest killer in the UK.",
+	quiz = [{
+		question: "Alzheimer’s disease is not fatal.",
+		choices: ["true", "false"],
+		message: "Alzheimer's disease has no survivors.",
+		correctAnswer: false,
+		}, {
+		question: "Alzheimer's has occurred only at ages older than:",
+		choices: ["33", "37", "42", "55", "None of the above."],
+		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
+		correctAnswer: "None of the above.",
+	  }, {
+		question: "Alzheimer's is the biggest killer in the UK?",
+		choices: ["true", "false"],
+		correctAnswer: true,
+		message: "Alzheimer's is the biggest killer in the UK.",
 
-    }, {
-    question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
-    choices: ["true", "false"],
-    correctAnswer: true,
-    message: "Alzheimer's has many more symptoms that the average person is aware of."
+	  }, {
+		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+		choices: ["true", "false"],
+		correctAnswer: true,
+		message: "Alzheimer's has many more symptoms that the average person is aware of."
   }];
 }
 
 function displayInitialScreen() {
-  $("#initial_screen").show();
-  $("#play_button").click(function() {
-    userName = $("#user_name").val();
-    startGame();
-  });
+	$("#initial_screen").show();
+	$("#play_button").click(function() {
+	  userName = $("#user_name").val();
+	  startGame();
+	});
 }
 
 /*
 Starting point of the app
 */
 $(document).ready(function() {
-  $("#initial_screen").hide();
-  $("#question_screen").hide();
-  displayInitialScreen();
+	$("#initial_screen").hide();
+	$("#question_screen").hide();
+	displayInitialScreen();
 });
 
 /*
 randomly pics an index in the range [0, quiz.length-1]
 */
 function getRandomQuestion() {
-  var whichIndex = Math.floor(Math.random() * quiz.length);
-  return quiz[whichIndex];
+	var whichIndex = Math.floor(Math.random() * quiz.length);
+	return quiz[whichIndex];
 }
 
 // `input` will be defined elsewhere, it's a means
@@ -121,35 +101,35 @@ function getRandomQuestion() {
 Plausible Questions:
 (*AD = Alzheimer's Disease)
 - Most common form of dementia (ans: alzheimer's disease)
-    other possible: vascular demntia,
-                    parkinson's disease,
-                    huntington's disease,
-                    dementia with Lewy bodies.
-    Message: "more than 850,000 people have dimentia in the UK alone."
+		other possible: vascular demntia,
+										parkinson's disease,
+										huntington's disease,
+										dementia with Lewy bodies.
+		Message: "more than 850,000 people have dimentia in the UK alone."
 
 - Who has a higher risk of AD (ans: women)
-    other possible: men, equally the same
-    message: "Women are nearly twice as likely to develop AD than men."
+		other possible: men, equally the same
+		message: "Women are nearly twice as likely to develop AD than men."
 
 - What are the two protiens responsible for dimentia?
-      amyloid (ans)
-      tau (ans)
-      TDP-43
-      Actin 5C
+			amyloid (ans)
+			tau (ans)
+			TDP-43
+			Actin 5C
 
 - Is there a cure for AD?
-      true
-      false (ans)
-  message: although there are treatments that can ease symptoms, there is no
-  cure for dimentia.
+			true
+			false (ans)
+	message: although there are treatments that can ease symptoms, there is no
+	cure for dimentia.
 
 - How much does dimentia effect the global economy?
-      $818 billion (ans)
-      $765 billion
-      $560 million
-      $300 thousand
+			$818 billion (ans)
+			$765 billion
+			$560 million
+			$300 thousand
   message: as of March 2016 dimentia costs the global economy
-  $818 billion, a figure that is continuously rising.
+	$818 billion, a figure that is continuously rising.
 
 -
 
@@ -158,11 +138,11 @@ Plausible Questions:
 
 
 var quiz = [{
-    question: "Alzheimer’s disease is not fatal.",
+		question: "Alzheimer’s disease is not fatal.",
     choices: [true, false],
     message: "Alzheimer's disease has no survivors.",
     correctAnswer: false,
-  }, {
+	}, {
     question: "Alzheimer's has occurred only at ages older than:",
     choices: [33, 37, 42, 55, "None of the above."],
     message: "Alzheimer's has been recorded to happen at ages as young as 30.",
