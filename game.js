@@ -27,44 +27,44 @@ Populates the given question on the screen
 */
 function populateQuestion(questionToPopulate) {
 	$("#question_body").text("Question: " + questionToPopulate.question);
-	console.log("populating question: " + questionToPopulate.question);
+	//console.log("populating question: " + questionToPopulate.question);
 	var c = $("#options");
-	for(var i = 0; i < question.choices.length; ++i) {
+	for(var i = 0; i < questionToPopulate.choices.length; ++i) {
 		var choiceId = i;
-		var choiceBody = question.choices[i];
-		var toAppend = ' \
-			<span class="input-group-addon"> \
-			<input type="checkbox" aria-label="..."> \
-			</span> \
-			<input type="text" class="form-control" id="choice_id"aria-label="..."> \
-		';
-		$("#question_choices").append($("<option />").val(this.ImageFolderID).text(this.Name));
+		var choiceBody = questionToPopulate.choices[i];
+		
+		var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" id="choice_id_' + choiceId + '">'));
+		var inputGroup = $('<div class="input-group">');
+		
+		inputGroup.append(intputGroupAddOn);
+		inputGroup.append($('<input type="text" class="form-control " value="' + choiceBody + '">'));
+		var colLg = $('<div class="col-lg-6">').append(inputGroup);
+		var row = $('<div class="row" style="margin-bottom: 10px;">').append(colLg);
+		$("#question_choices").prepend(row);
 	}
-	$.each(result, function() {
-		options.append($("<option />").val(this.ImageFolderID).text(this.Name));
-	});
+	
 }
 
 function populateQuiz() {
 	quiz = [{
 		question: "Alzheimer’s disease is not fatal.",
-		choices: [true, false],
+		choices: ["true", "false"],
 		message: "Alzheimer's disease has no survivors.",
 		correctAnswer: false,
 		}, {
 		question: "Alzheimer's has occurred only at ages older than:",
-		choices: [33, 37, 42, 55, "None of the above."],
+		choices: ["33", "37", "42", "55", "None of the above."],
 		message: "Alzheimer's has been recorded to happen at ages as young as 30.",
 		correctAnswer: "None of the above.",
 	  }, {
 		question: "Alzheimer's is the biggest killer in the UK?",
-		choices: [true, false],
+		choices: ["true", "false"],
 		correctAnswer: true,
 		message: "Alzheimer's is the biggest killer in the UK.",
 
 	  }, {
 		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
-		choices: [true, false],
+		choices: ["true", "false"],
 		correctAnswer: true,
 		message: "Alzheimer's has many more symptoms that the average person is aware of."
   }];
