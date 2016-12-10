@@ -122,15 +122,15 @@ function populateQuestion(questionToPopulate, id) {
 
 function populateQuiz() {
   quiz = [{
-		question: "Alzheimer’s disease is not fatal.",
+		question: "The Alzheimer’s disease is fatal.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
 		],
-		message: "Alzheimer's disease has no survivors.",
+		message: "The Alzheimer's disease has no survivors.",
     },
 	{
-		question: "Alzheimer's has occurred only at ages older than:",
+		question: "The Alzheimer's disease has occurred only at ages older than:",
 		choices: [
 			{body: "33", isCorrect: false},
 			{body: "37", isCorrect: false},
@@ -142,7 +142,7 @@ function populateQuiz() {
 		correctAnswer: "None of the above.",
     },
 	{
-		question: "Alzheimer's is the biggest killer in the UK?",
+		question: "Alzheimer's is the biggest killer in the UK.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
@@ -151,7 +151,7 @@ function populateQuiz() {
 
     },
 	{
-		question: "The most prominent symptoms of Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements?",
+		question: "The most prominent symptoms of the Alzheimer's disease include memory loss, gradual loss of speech, and/or difficulties with any physical movements.",
 		choices: [
 			{body: "true", isCorrect: true},
 			{body: "false", isCorrect: false}
