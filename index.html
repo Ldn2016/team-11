@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>BrainChopper</title>
+    <title>Alzheimer's Research UK</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +21,44 @@
     <![endif]-->
 
     <style type="text/css">
+    body {
+      background-color: black;
+    }
+
+    .intro {
+      border-radius: 100%;
+      behavior: url(PIE.htc); /* remove if we don't care about IE8 */.
+      width: 100px;
+      height: 100px;
+      padding: 100px;
+      background: none;
+      border: 3px solid white;
+      color: #666;
+      text-align: center;
+      font: 32px Helvetica;
+      position: absolute;
+      left: 100px; top:195px;
+      -webkit-animation: popin 3s ; /* Chrome, Safari, Opera */
+      animation: popin 3s ;
+
+    }
+
+    .lead {
+      color: white;
+    }
+
+    .h1 {
+      color: white;
+    }
+
+
+
+    @keyframes popin {
+      0%   { transform:scale(0.0); opacity:0.0; }
+      1%   { transform:scale(0.01); opacity:0.01; }
+      100% { transform:scale(1.0); opacity:1.0; }
+    }
+
     </style>
 
   </head>
@@ -34,13 +73,13 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">BrainChopper</h3>
+        <h3 class="text-muted"><font color="orange">Alzheimer's</font> Research UK</h3>
       </div>
 
 	<div id="main_content">
 		<div id="initial_screen">
-			<div class="jumbotron">
-			<h1>Raising dementia awareness</h1>
+			<div class="intro">
+			<h1>Raising Dementia Awareness</h1>
 			<p class="lead">Interested in playing a game and winning a cool Snapchat filter for funky selfies? Just type in your name and get started!</p>
 			
 			<div class="input-group">
