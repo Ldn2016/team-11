@@ -34,7 +34,7 @@ function populateQuestion(questionToPopulate) {
 		var choiceBody = questionToPopulate.choices[i];
 		
 		var intputGroupAddOn = $('<span class="input-group-addon">').append($('<input type="checkbox" id="choice_id_' + choiceId + '">'));
-		var inputGroup = $('<div class="input-group">');
+		var inputGroup = $('<div class="input-group input-group-lg">');
 		
 		inputGroup.append(intputGroupAddOn);
 		inputGroup.append($('<input type="text" class="form-control " value="' + choiceBody + '">'));
