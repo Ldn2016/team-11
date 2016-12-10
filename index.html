@@ -42,6 +42,23 @@
 
     }
 
+        .shareintro {
+      border-radius: 100%;
+      behavior: url(PIE.htc); /* remove if we don't care about IE8 */.
+      width: 100px;
+      height: 100px;
+      padding: 100px;
+      background: none;
+      color: #666;
+      text-align: center;
+      font: 32px Helvetica;
+      position: absolute;
+      left: 2px; top:100px;
+      -webkit-animation: sharepop 3s ; /* Chrome, Safari, Opera */
+      animation: sharepop 3s ;
+
+    }
+
     .lead {
       color: white;
     }
@@ -73,6 +90,12 @@
       100% { transform:scale(1.0); opacity:1.0; }
     }
 
+      @keyframes sharepop {
+      0%   { transform:scale(0.0); opacity:0.0; }
+      1%   { transform:scale(0.01); opacity:0.01; }
+      70% { transform:scale(1.0); opacity:1.0; }
+    }
+
     .jumbotron {
       background-color: black;
 
@@ -86,9 +109,8 @@
 
     .sharefeatures {
       position: absolute;
-      right:620px;
-      top:;
-      down
+      right:0px;
+      top: 0px;
     }
 
 
@@ -139,10 +161,14 @@
       </div>
     </div>
     </div>
+
   </div>
 
 
     </div> <!-- /container -->
+    <div class = "shareintro">
+    <div class="fb-share-button shareintro sharefeatures" data-href="website to share" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
+  </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>
@@ -150,8 +176,6 @@
     <script src="js/bootstrap.min.js"></script>
   <script src="game.js"></script>
 
-
-<div class="fb-share-button sharefeatures" data-href="website to share" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
 
 
   </body>
