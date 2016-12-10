@@ -10,7 +10,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom styles for this template -->
+  <!-- Custom styles for this template -->
     <link href="css/jumbotron-narrow.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -73,25 +73,10 @@
       100% { transform:scale(1.0); opacity:1.0; }
     }
 
-    #div1 {-webkit-animation-timing-function: ease;
-    }
+    .jumbotron {
+      background-color: black;
 
-        r {
-      width: 100px;
-      height: 50px;
-      font-weight: bold;
-      font-family: Helvetica;
-      font-size: 30px;
-      position: absolute;
-      -webkit-animation: mymovefromright 7s;
-      animation: mymovefromright 7s;
-      -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
-      -moz-animation-fill-mode:forwards; /*FF 5+*/
-      -o-animation-fill-mode:forwards; /*Not implemented yet*/
-      -ms-animation-fill-mode:forwards; /*IE 10+*/
-      animation-fill-mode:forwards; /*when the spec is finished*/
     }
-
 
 
     </style>
@@ -109,30 +94,30 @@
         <h3><font color="white"><font color="orange">A</font>lzheimer's <font color="orange">R</font>esearch <font color="orange">UK</font></h3>
       </div>
 
-	<div id="main_content">
-		<div id="initial_screen">
-			<div class="intro">
-			<h1><font color="white">How Much Do You Know?</font></h1>
-			<p class="lead">Play to win a cool Snapchat filter for funky selfies. Just type in your name and get started!</p>
-			
-			<div class="input-group">
-			  <span class="input-group-addon" id="basic-addon1">Name</span>
-			  <input type="text" id="user_name" class="input-lg form-control" placeholder="Type your name here" aria-describedby="basic-addon1">
-			</div>
-			<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Play</a></p>
-		  </div>
-		</div>
-		<div id="question_screen">
-			<div class="jumbotron">
-			<h1><span id="display_name"></span>'s score so far: <span id="display_score"></span></h1>
-			<p class="lead" id="question_body"></p>
-			<div id="question_choices">
-				<p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-success btn-block" href="#" role="button">Submit</a></p>
-			</div>
-		  </div>
-		</div>
-		</div>
-	</div>
+  <div id="main_content">
+    <div id="initial_screen">
+      <div class="intro">
+      <h1><font color="white">How Much Do You Know?</font></h1>
+      <p class="lead">Play to win a cool Snapchat filter for funky selfies. Just type in your name and get started!</p>
+      
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Name</span>
+        <input type="text" id="user_name" class="input-lg form-control" placeholder="Type your name here" aria-describedby="basic-addon1">
+      </div>
+      <p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Play</a></p>
+      </div>
+    </div>
+    <div id="question_screen">
+      <div class="jumbotron">
+      <h3><span id="display_name"></span>, your score so far is: <span id="display_score"></span></h3>
+      <p class="lead" id="question_body"></p>
+      <div id="question_choices">
+        <p style="margin-top: 30px;"><a id="play_button" class="btn btn-lg btn-warning btn-block" href="#" role="button">Next Question</a></p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
 
 
     </div> <!-- /container -->
@@ -141,6 +126,6 @@
     <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-	<script src="game.js"></script>
+  <script src="game.js"></script>
   </body>
 </html>
